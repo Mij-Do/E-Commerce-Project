@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header .navbar .nav-item a {
+    text-transform: uppercase;
+    color: #7db6c9 !important;
+}
+header .navbar .nav-item a:hover {
+    transition: 0.3s !important;
+    background-color: #2828ff;
+    color: white !important;
+    border-radius: 3px;
+}
