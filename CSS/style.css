@@ -3,13 +3,42 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* start header */
+header .navbar {
+    background-color: #191970 !important;
+}
 header .navbar .nav-item a {
     text-transform: uppercase;
-    color: #7db6c9 !important;
+    color: white !important;
 }
 header .navbar .nav-item a:hover {
-    transition: 0.3s !important;
-    background-color: #2828ff;
-    color: white !important;
+    transition: 0.5s !important;
+    background-color: #4646ff;
     border-radius: 3px;
+    color: white !important;
+    letter-spacing: 0.5px;
 }
+.dropdown .dropdown-menu li a {
+    color: black !important;
+}
+
+
+/* end header */
+
+/* start main home*/
+main {
+    width: 100%;
+}
+.home .image {
+    width: 100%;
+}
+.home .image img {
+    width: 100%;
+}
+.title {
+    text-align: center;
+    font-size: 100px;
+    margin: 10px 0;
+}
+
+/* end main home*/
