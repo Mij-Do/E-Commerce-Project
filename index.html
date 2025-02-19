@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./CSS/style.css">
+    <title>E-Commerce Project</title>
+</head>
+
+<body>
+    <!-- head of the project -->
+    <header>
+        <h2 class="logo">E-Commerce</h2>
+        <nav>
+            <a href="#home" onclick="getEle (event, 'home') ">Home</a>
+            <a href="#about" onclick="getEle (event, 'about') ">About</a>
+            <a href="#categories" onclick="getEle (event, 'categories') ">categories</a>
+            <a href="#contact" onclick="getEle (event, 'contact') ">contact-us</a>
+            <a href="#">Products</a>
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i> Carts</a>
+        </nav>
+    </header>
+
+    <!-- body of the project -->
+    <!-- main home -->
+    <main id="home" class="home">
+        <button type="button" id="backToTop"><i class="fa-solid fa-jet-fighter-up"></i></button>
+        <div class="image">
+            <img src="./Images/home image.png" alt="Home image">
+        </div>
+        <div class="container">
+            <!-- start about -->
+            <h2 class="title">About</h2>
+            <section id="about" class="about">
+                <div class="about-image">
+                    <img src="./Images/about-image.png" alt="about image">
+                </div>
+                <div class="about-content">
+                    <p>
+                        At E-Commerce, we don’t just sell products—we build seamless digital experiences. Our
+                        e-commerce platform is crafted with cutting-edge web technologies to deliver a fast, secure, and
+                        user-friendly shopping experience.
+
+                        From intuitive UI/UX design to optimized performance, we ensure that every interaction on our
+                        platform is smooth and efficient. Our website is built using the latest front-end technologies,
+                        ensuring responsiveness across all devices, while our backend infrastructure guarantees secure
+                        transactions and real-time data processing.
+
+                        We continuously innovate, implementing the best practices in web development, security, and user
+                        experience. Whether you’re browsing, adding products to your cart, or completing a purchase, our
+                        goal is to make every step effortless and enjoyable.
+
+                        At E-Commerce, technology drives everything we do—because a great shopping experience
+                        starts with great engineering.
+                    </p>
+                </div>
+            </section>
+            <!-- end about -->
+
+            <!-- start categories -->
+            <h2 class="title">categories</h2>
+            <section id="categories" class="categories">
+                <div id="camera">
+                    <i class="fa-solid fa-camera"></i>
+                    <p>camera</p>
+                </div>
+                <div id="haedphones">
+                    <i class="fa-solid fa-headphones-simple"></i>
+                    <p>haedphones</p>
+                </div>
+                <div id="controller">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <p>controller</p>
+                </div>
+                <div id="phones">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <p>phones</p>
+                </div>
+                <div id="computers">
+                    <i class="fa-solid fa-computer"></i>
+                    <p>computers</p>
+                </div>
+                <div id="smartWatch">
+                    <i class="fa-regular fa-clock"></i>
+                    <p>smartWatch</p>
+                </div>
+                <div id="earbuds">
+                    <i class="fa-solid fa-ear-listen"></i>
+                    <p>earbuds</p>
+                </div>
+                <div id="printer">
+                    <i class="fa-solid fa-print"></i>
+                    <p>printer</p>
+                </div>
+                <div id="drone">
+                    <i class="fa-solid fa-plane"></i>
+                    <p>drone</p>
+                </div>
+                <div id="speaker">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <p>speaker</p>
+                </div>
+                <div id="microphone">
+                    <i class="fa-solid fa-microphone"></i>
+                    <p>microphone</p>
+                </div>
+                <div id="scanner">
+                    <i class="fa-regular fa-file"></i>
+                    <p>scanner</p>
+                </div>
+            </section>
+            <!-- end categories -->
+            
+            <!-- start featured section -->
+            <h2 class="title">featured products</h2>
+            <section class="featured">
+                <div>
+                    <img src="./Images/featured/dual shock-Photoroom.png" alt="dual shock">
+                    <h4>dual shock</h4>
+                    <p>$80.00</p>
+                    <button type="button"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </div>
+                <div>
+                    <img src="./Images/featured/lavalier old mic-Photoroom.png" alt="lavalier old mic">
+                    <h4>lavalier old mic</h4>
+                    <p>$80.00</p>
+                    <button type="button"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </div>
+                <div>
+                    <img src="./Images/featured/smart watch-Photoroom.png" alt="smart watch">
+                    <h4>dualsense</h4>
+                    <p>$80.00</p>
+                    <button type="button"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </div>
+                <div>
+                    <img src="./Images/featured/phone-Photoroom.png" alt="phone">
+                    <h4>phone</h4>
+                    <p>$80.00</p>
+                    <button type="button"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </div>
+                <div>
+                    <img src="./Images/featured/smart monitor-Photoroom.png" alt="smart monitor">
+                    <h4>smart monitor</h4>
+                    <p>$80.00</p>
+                    <button type="button"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </div>
+            </section>
+            <!-- end featured section -->
+        </div>
+    </main>
+    <script src="./JS/main.js"></script>
+</body>
+
+</html>
