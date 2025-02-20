@@ -58,7 +58,25 @@ header nav a:hover {
         align-items: center;
     }
 }
-
+.cartsParent {
+    position: relative;
+}
+#cartsPro::after {
+    content: '0';
+    background-color: orangered;
+    color: white;
+    font-size: 12px;
+    padding: 3px;
+    border-radius: 5px;
+    position: absolute;
+    top: -5px;
+    right: 60px;
+}
+@media (max-width: 767px) {
+    #cartsPro::after {
+        right: 46px;
+    }
+}
 /* end header */
 
 /* start main home*/
