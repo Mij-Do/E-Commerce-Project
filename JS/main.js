@@ -27,7 +27,7 @@ backToTop.addEventListener ('click', function () {
 
 
 let productElement = document.getElementById("featured");
-fetch("https://fakestoreapi.com/products/category/electronics")
+fetch("JSON/file.json")
     .then(response => response.json())
     .then(data => {
 
