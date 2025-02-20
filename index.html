@@ -13,8 +13,8 @@
 </head>
 
 <body>
-    <!-- head of the project -->
-    <header>
+    <!-- header of the project -->
+    <header id="header">
         <h2 class="logo">E-Commerce</h2>
         <nav>
             <a href="#home" onclick="getEle (event, 'home') ">Home</a>
@@ -22,10 +22,11 @@
             <a href="#categories" onclick="getEle (event, 'categories') ">categories</a>
             <a href="#contact" onclick="getEle (event, 'contact') ">contact-us</a>
             <a href="#">Products</a>
-            <a href="./cart.html" class="cartsParent"><i class="fa-solid fa-cart-shopping" id="cartsPro"></i> Carts</a>
+            <a class="cartsParent"><i class="fa-solid fa-cart-shopping" id="cartsPro"></i> Carts</a>
         </nav>
     </header>
-
+    <!-- end header -->
+    
     <!-- body of the project -->
     <!-- main home -->
     <main id="home" class="home">
@@ -118,41 +119,47 @@
             
             <!-- start featured section -->
             <h2 class="title">featured products</h2>
-            <section class="featured">
-                <div>
+            <section class="featured" id="featured">
+
+                <!-- <div>
                     <img src="./Images/featured/dual shock-Photoroom.png" alt="dual shock">
                     <h4>dual shock</h4>
                     <p>$80.00</p>
-                    <button type="button"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                    <button type="button" id="dualShock" onclick="addToCart (this.id)"><i class="fa-solid fa-plus"></i> Add to Cart</button>
                 </div>
                 <div>
                     <img src="./Images/featured/lavalier old mic-Photoroom.png" alt="lavalier old mic">
                     <h4>lavalier old mic</h4>
                     <p>$80.00</p>
-                    <button type="button"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                    <button type="button" id="lavalierOldMic" onclick="addToCart (this.id)"><i class="fa-solid fa-plus"></i> Add to Cart</button>
                 </div>
                 <div>
                     <img src="./Images/featured/smart watch-Photoroom.png" alt="smart watch">
                     <h4>dualsense</h4>
                     <p>$80.00</p>
-                    <button type="button"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                    <button type="button" id="smartWatch" onclick="addToCart (this.id)"><i class="fa-solid fa-plus"></i> Add to Cart</button>
                 </div>
                 <div>
                     <img src="./Images/featured/phone-Photoroom.png" alt="phone">
                     <h4>phone</h4>
                     <p>$80.00</p>
-                    <button type="button"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                    <button type="button" id="phone" onclick="addToCart (this.id)"><i class="fa-solid fa-plus"></i> Add to Cart</button>
                 </div>
                 <div>
                     <img src="./Images/featured/smart monitor-Photoroom.png" alt="smart monitor">
                     <h4>smart monitor</h4>
                     <p>$80.00</p>
-                    <button type="button"><i class="fa-solid fa-plus"></i> Add to Cart</button>
-                </div>
+                    <button type="button" id="smartMonitor" onclick="addToCart (this.id)"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </div> -->
             </section>
             <!-- end featured section -->
         </div>
     </main>
+    <!-- start main cart -->
+    <main id="cart">
+
+    </main>
+    <!-- end main cart -->
     <script src="./JS/main.js"></script>
 </body>
 

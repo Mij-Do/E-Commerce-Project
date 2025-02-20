@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: system-ui;
 }
 :root {
     --main-color: #181858;
@@ -211,13 +212,26 @@ main {
 }
 
 .featured div {
+    width: 200px;
+    height: 100%;
     border: black solid 1px;
     border-radius: 5px;
     background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
 }
 
 .featured div img {
-    width: 100%;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+    padding: 10px;
 }
 .featured div h4, p, button {
     text-transform: uppercase;
