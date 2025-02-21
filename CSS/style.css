@@ -46,7 +46,7 @@ header nav a:hover {
     letter-spacing: 1.2px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 776px) {
     header {
         flex-direction: column;
         justify-content: center;
@@ -73,7 +73,7 @@ header nav a:hover {
     top: -5px;
     right: 60px;
 }
-@media (max-width: 767px) {
+@media (max-width: 776px) {
     #cartsPro::after {
         right: 46px;
     }
@@ -261,4 +261,50 @@ main {
 
 /* end featured */
 
+/* start contact section */
+.contact {
+    margin: 60px 0;
+    background-color: var(--main-color);
+    padding: 15px;
+    border-radius: 50px;
+}
+.contact input {
+    display: block;
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    padding: 10px 0;
+    margin-bottom: 5px;
+    outline: none;
+    border: none;
+    background-color: var(--main-color);
+    border-bottom: #eee 1px solid;
+    transition: 0.5s;
+    color: white;
+}
+.contact input:focus {
+    transform: scale(1.1);
+}
+.contact input::placeholder {
+    color: #ffe8e8;
+}
+.contact button {
+    display: block;
+    width: 80%;
+    padding: 5px;
+    background-color: white;
+    color: var(--main-color);
+    transition: 0.3s;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 10px;
+}
+.contact button:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+/* end contact section */
 /* end main home*/

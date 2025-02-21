@@ -35,7 +35,7 @@ fetch("JSON/file.json")
             productElement.innerHTML += `
             <div>
                 <artecle>
-                    <img src="${product.image}" alt="${product.title}" width="150">
+                    <img src="${product.image}" loading="lazy" alt="${product.title}" width="150">
                     <h4>${product.title}</h4>
                     <p>💰 Price: $${product.price}</p>
                 </artecle>
