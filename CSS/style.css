@@ -45,6 +45,9 @@ header nav a:hover {
     color: var(--main-color);
     letter-spacing: 1.2px;
 }
+.fa-bars, .fa-x {
+    display: none;
+}
 
 @media (max-width: 776px) {
     header {
@@ -52,11 +55,22 @@ header nav a:hover {
         justify-content: center;
         align-items: center;
     }
+    header nav {
+        display: none;
+    }
     header nav a {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    .fa-bars {
+        display: block;
+    }
+    .fa-bars, .fa-x {
+        cursor: pointer;
+        margin-top: 5px;
+        transform: scale(1.4);
     }
 }
 .cartsParent {
@@ -87,6 +101,7 @@ main {
 }
 .home .image {
     width: 100%;
+    margin: 40px 0;
 }
 .home .image img {
     width: 100%;

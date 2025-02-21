@@ -25,7 +25,29 @@ backToTop.addEventListener ('click', function () {
     });
 });
 
+// nav for small screen
+let navBtnToOpen = document.getElementById('navBtnToOpen');
+let navItems = document.getElementById('navItems');
+let navBtnToClose = document.getElementById('navBtnToClose');
 
+navBtnToOpen.addEventListener('click', function () {
+    if (navItems.style.display === 'none') {
+        navItems.style.display = 'block';
+        navBtnToOpen.style.display = 'none';
+        navBtnToClose.style.display = 'block';
+        navBtnToClose.addEventListener('click', function () {
+            if (navItems.style.display === 'block') {
+                navItems.style.display = 'none'
+                navBtnToOpen.style.display = 'block';
+                navBtnToClose.style.display = 'none';
+            }
+        });
+    } else {
+        navItems.style.display = 'none';
+    }
+});
+
+// api json for products
 let productElement = document.getElementById("featured");
 fetch("JSON/file.json")
     .then(response => response.json())
