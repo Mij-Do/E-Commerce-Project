@@ -85,11 +85,11 @@ header nav a:hover {
     border-radius: 5px;
     position: absolute;
     top: -5px;
-    right: 60px;
+    right: 5px;
 }
 @media (max-width: 776px) {
     #cartsPro::after {
-        right: 46px;
+        right: 45px;
     }
 }
 /* end header */
@@ -323,3 +323,65 @@ main {
 }
 /* end contact section */
 /* end main home*/
+
+/* main cart */
+#cart {
+    margin: 60px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #eee;
+}
+
+#cart div {
+    height: 100%;
+    border: black solid 1px;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#cart div img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+#cart div h4, p, button {
+    text-transform: uppercase;
+    margin: 5px 0;
+}
+
+#cart div button {
+    padding: 5px;
+    background-color: var(--main-color);
+    color: white;
+    transition: 0.3s;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#cart div button:hover {
+    background-color: white;
+    color: var(--main-color);
+}
+
+@media (max-width: 767px) {
+    #cart {
+        padding: 0;
+    }
+}
+/* main cart */

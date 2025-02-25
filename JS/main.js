@@ -48,7 +48,6 @@ navBtnToOpen.addEventListener('click', function () {
 });
 
 // api json for products
-let productElement = document.getElementById("featured");
 // fetch("JSON/file.json")
 //     .then(response => response.json())
 //     .then(data => {
@@ -71,13 +70,20 @@ let productElement = document.getElementById("featured");
 //     .catch(error => console.error("Error fetching products:", error));
 
 
+
+let cart = document.getElementById('cart');
+let cartsPro = document.getElementById('cartsPro');
+let home = document.getElementById('home');
+
 async function fetchData () {
     let res = await fetch ('JSON/file.json');
     if (!res.ok) {
         throw new Error('not found');
     };
-
+    
     let data = await res.json();
+
+    let productElement = document.getElementById("featured");
 
     data.forEach(product => {
                     productElement.innerHTML += `
@@ -88,12 +94,49 @@ async function fetchData () {
                                 <p>💰 Price: $${product.price}</p>
                             </article>
                             <article>
-                                <button type="button" id="${product}" onclick="addToCart (this.id)"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                                <button type="button" id="${product.title}" class="addToCart"><i class="fa-solid fa-plus"></i> Add to Cart</button>
                             </article>
                         </div>
                 `});
     
+    // add to cart
+    let addToCart = document.querySelectorAll('.addToCart');
+
+    addToCart.forEach(button => {
+        button.addEventListener('click', () => {
+            data.forEach(product => {
+                if (product.title == button.id) {
+                    cart.innerHTML +=`
+                            <div>
+                                <article>
+                                    <img src="${product.image}" loading="lazy" alt="${product.title}">
+                                    <h4>${product.title}</h4>
+                                    <p>💰 Price: $${product.price}</p>
+                                </article>
+                                <article>
+                                    <button type="button" id="${product.title}" class="buy">Buy</button>
+                                    <button type="button" id="${product.title}" class="delete">Delete</button>
+                                </article>
+                            </div>
+                        `;
+                }
+            })
+        });
+    });
+    
 }
+
 fetchData();
 
 
+cart.style.display = 'none';
+
+cartsPro.onclick = () => {
+    if (cart.style.display === 'none') {
+        cart.style.display = 'block';
+        home.style.display = 'none';
+    } else {
+        cart.style.display = 'none';
+        home.style.display = 'block';
+    }
+}
