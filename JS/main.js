@@ -49,23 +49,51 @@ navBtnToOpen.addEventListener('click', function () {
 
 // api json for products
 let productElement = document.getElementById("featured");
-fetch("JSON/file.json")
-    .then(response => response.json())
-    .then(data => {
+// fetch("JSON/file.json")
+//     .then(response => response.json())
+//     .then(data => {
+
+//     data.forEach(product => {
+//             productElement.innerHTML += `
+//                 <div>
+//                     <artecle>
+//                         <img src="${product.image}" loading="lazy" alt="${product.title}">
+//                         <h4>${product.title}</h4>
+//                         <p>💰 Price: $${product.price}</p>
+//                     </artecle>
+//                     <artecle>
+//                         <button type="button" id="${product}" onclick="addToCart (this.id)"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+//                     </artecle>
+//                 </div>
+//         `;
+//     });
+//     })
+//     .catch(error => console.error("Error fetching products:", error));
+
+
+async function fetchData () {
+    let res = await fetch ('JSON/file.json');
+    if (!res.ok) {
+        throw new Error('not found');
+    };
+
+    let data = await res.json();
 
     data.forEach(product => {
-            productElement.innerHTML += `
-            <div>
-                <artecle>
-                    <img src="${product.image}" loading="lazy" alt="${product.title}" width="150">
-                    <h4>${product.title}</h4>
-                    <p>💰 Price: $${product.price}</p>
-                </artecle>
-                <artecle>
-                    <button type="button" id="dualShock" onclick="addToCart (this.id)"><i class="fa-solid fa-plus"></i> Add to Cart</button>
-                </artecle>
-            </div>
-        `;
-    });
-    })
-    .catch(error => console.error("Error fetching products:", error));
+                    productElement.innerHTML += `
+                        <div>
+                            <article>
+                                <img src="${product.image}" loading="lazy" alt="${product.title}">
+                                <h4>${product.title}</h4>
+                                <p>💰 Price: $${product.price}</p>
+                            </article>
+                            <article>
+                                <button type="button" id="${product}" onclick="addToCart (this.id)"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                            </article>
+                        </div>
+                `});
+    
+}
+fetchData();
+
+
