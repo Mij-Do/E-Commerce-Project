@@ -1,3 +1,4 @@
+// scroll 
 function getEle (event, id) {
     event.preventDefault();
     const element = document.getElementById(id);
@@ -131,12 +132,19 @@ fetchData();
 
 cart.style.display = 'none';
 
-cartsPro.onclick = () => {
+function goToCart () {
     if (cart.style.display === 'none') {
         cart.style.display = 'block';
         home.style.display = 'none';
     } else {
         cart.style.display = 'none';
         home.style.display = 'block';
+    }
+}
+
+function backHome () {
+    if (home.style.display === 'none') {
+        home.style.display = 'block';
+        cart.style.display = 'none';
     }
 }

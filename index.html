@@ -18,13 +18,13 @@
     <header id="header">
         <h2 class="logo">E-Commerce</h2>
         <nav id="navItems">
-            <a href="#home" onclick="getEle (event, 'home') ">Home</a>
+            <a href="#home" onclick="getEle (event, 'home'), backHome() ">Home</a>
             <a href="#about" onclick="getEle (event, 'about') ">About</a>
             <a href="#categories" onclick="getEle (event, 'categories') ">categories</a>
             <a href="#featured" onclick="getEle (event, 'featured')">featured</a>
             <a href="#contact" onclick="getEle (event, 'contact') ">contact-us</a>
             <a href="#">Products</a>
-            <a class="cartsParent"><i class="fa-solid fa-cart-shopping" id="cartsPro"></i></a>
+            <a class="cartsParent" onclick="goToCart()"><i class="fa-solid fa-cart-shopping" id="cartsPro"></i></a>
         </nav>
         <i class="fa-solid fa-bars" id="navBtnToOpen"></i>
         <i class="fa-solid fa-x" id="navBtnToClose"></i>
