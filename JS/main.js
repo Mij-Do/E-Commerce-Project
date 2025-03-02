@@ -109,6 +109,7 @@ function addToCartFunc (id) {
         };
     };
     window.localStorage.setItem('products', JSON.stringify(dataPro));
+    showData();
 };
 
 function showData () {
