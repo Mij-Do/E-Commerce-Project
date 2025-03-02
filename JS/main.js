@@ -87,10 +87,36 @@ fetchData();
 let dataPro;
 
 if (localStorage.products != null) {
-    dataPro = JSON.parse(localStorage.products)
+    dataPro = JSON.parse(localStorage.products);
 } else {
     dataPro = [];
 }
+
+function showData () {
+    cart.innerHTML = ``;
+    if (localStorage.products != null) {
+        dataPro = JSON.parse(localStorage.products);
+    } else {
+        dataPro = [];
+    }
+    for (let i = 0; i < dataPro.length; i++) {
+        cart.innerHTML +=`
+                        <div>
+                            <article>
+                                <img src="${dataPro[i].image}" loading="lazy" alt="${dataPro[i].title}">
+                                <h4>${dataPro[i].title}</h4>
+                                <p>💰 Price: $${dataPro[i].price}</p>
+                            </article>
+                            <article>
+                                <button type="button" id="${dataPro[i].title}" class="buy">Buy</button>
+                                <button type="button" id="${dataPro[i].title}" class="delete">Delete</button>
+                            </article>
+                        </div>
+                    `; 
+    };
+};
+
+showData();
 
 function addToCartFunc (id) {
     let objLength = Object.keys(tmp).length;
@@ -111,27 +137,6 @@ function addToCartFunc (id) {
     window.localStorage.setItem('products', JSON.stringify(dataPro));
     showData();
 };
-
-function showData () {
-    for (let i = 0; i < dataPro.length; i++) {
-        cart.innerHTML +=`
-                        <div>
-                            <article>
-                                <img src="${dataPro[i].image}" loading="lazy" alt="${dataPro[i].title}">
-                                <h4>${dataPro[i].title}</h4>
-                                <p>💰 Price: $${dataPro[i].price}</p>
-                            </article>
-                            <article>
-                                <button type="button" id="${dataPro[i].title}" class="buy">Buy</button>
-                                <button type="button" id="${dataPro[i].title}" class="delete">Delete</button>
-                            </article>
-                        </div>
-                    `; 
-    };
-};
-
-showData();
-
 
 // go to cart & back to main functions
 
