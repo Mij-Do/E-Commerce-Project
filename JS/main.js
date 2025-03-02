@@ -48,30 +48,9 @@ navBtnToOpen.addEventListener('click', function () {
     }
 });
 
-// api json for products
-// fetch("JSON/file.json")
-//     .then(response => response.json())
-//     .then(data => {
 
-//     data.forEach(product => {
-//             productElement.innerHTML += `
-//                 <div>
-//                     <artecle>
-//                         <img src="${product.image}" loading="lazy" alt="${product.title}">
-//                         <h4>${product.title}</h4>
-//                         <p>💰 Price: $${product.price}</p>
-//                     </artecle>
-//                     <artecle>
-//                         <button type="button" id="${product}" onclick="addToCart (this.id)"><i class="fa-solid fa-plus"></i> Add to Cart</button>
-//                     </artecle>
-//                 </div>
-//         `;
-//     });
-//     })
-//     .catch(error => console.error("Error fetching products:", error));
-
-
-
+// get the products from json file 
+let tmp;
 let cart = document.getElementById('cart');
 let cartsPro = document.getElementById('cartsPro');
 let home = document.getElementById('home');
@@ -83,8 +62,8 @@ async function fetchData () {
     };
     
     let data = await res.json();
-
-    let productElement = document.getElementById("featured");
+    tmp = data;
+    let productElement = document.getElementById("products");
 
     data.forEach(product => {
                     productElement.innerHTML += `
@@ -95,40 +74,65 @@ async function fetchData () {
                                 <p>💰 Price: $${product.price}</p>
                             </article>
                             <article>
-                                <button type="button" id="${product.title}" class="addToCart"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                                <button type="button" id="${product.title}" onclick="addToCartFunc(this.id)"><i class="fa-solid fa-plus"></i> Add to Cart</button>
                             </article>
                         </div>
-                `});
-    
-    // add to cart
-    let addToCart = document.querySelectorAll('.addToCart');
-
-    addToCart.forEach(button => {
-        button.addEventListener('click', () => {
-            data.forEach(product => {
-                if (product.title == button.id) {
-                    cart.innerHTML +=`
-                            <div>
-                                <article>
-                                    <img src="${product.image}" loading="lazy" alt="${product.title}">
-                                    <h4>${product.title}</h4>
-                                    <p>💰 Price: $${product.price}</p>
-                                </article>
-                                <article>
-                                    <button type="button" id="${product.title}" class="buy">Buy</button>
-                                    <button type="button" id="${product.title}" class="delete">Delete</button>
-                                </article>
-                            </div>
-                        `;
-                }
-            })
-        });
-    });
-    
+    `});
 }
 
 fetchData();
 
+// add to cart
+
+let dataPro;
+
+if (localStorage.products != null) {
+    dataPro = JSON.parse(localStorage.products)
+} else {
+    dataPro = [];
+}
+
+function addToCartFunc (id) {
+    let objLength = Object.keys(tmp).length;
+    
+    for (let i = 0; i < objLength; i++) {   
+        
+        if (tmp[i].title === id) {
+            let products = {
+                id: tmp[i].id,
+                title: tmp[i].title,
+                price: tmp[i].price,
+
+                image: tmp[i].image,
+            };
+            dataPro.push(products);
+        };
+    };
+    window.localStorage.setItem('products', JSON.stringify(dataPro));
+};
+
+function showData () {
+    for (let i = 0; i < dataPro.length; i++) {
+        cart.innerHTML +=`
+                        <div>
+                            <article>
+                                <img src="${dataPro[i].image}" loading="lazy" alt="${dataPro[i].title}">
+                                <h4>${dataPro[i].title}</h4>
+                                <p>💰 Price: $${dataPro[i].price}</p>
+                            </article>
+                            <article>
+                                <button type="button" id="${dataPro[i].title}" class="buy">Buy</button>
+                                <button type="button" id="${dataPro[i].title}" class="delete">Delete</button>
+                            </article>
+                        </div>
+                    `; 
+    };
+};
+
+showData();
+
+
+// go to cart & back to main functions
 
 cart.style.display = 'none';
 
