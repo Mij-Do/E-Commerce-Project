@@ -109,10 +109,11 @@ function showData () {
                             </article>
                             <article>
                                 <button type="button" id="${dataPro[i].title}" class="buy">Buy</button>
-                                <button type="button" id="${dataPro[i].title}" class="delete">Delete</button>
+                                <button type="button" id="${dataPro[i].title}" onClick="deleteFromCart (this.id)" class="delete">Delete</button>
                             </article>
                         </div>
-                    `; 
+                    `;
+                    cartsPro.innerHTML = `${dataPro.length}`;
     };
 };
 
@@ -122,18 +123,21 @@ function addToCartFunc (id) {
     let objLength = Object.keys(tmp).length;
     
     for (let i = 0; i < objLength; i++) {   
-        
-        if (tmp[i].title === id) {
-            let products = {
-                id: tmp[i].id,
-                title: tmp[i].title,
-                price: tmp[i].price,
-
-                image: tmp[i].image,
-            };
-            dataPro.push(products);
+        let products = {
+            id: tmp[i].id,
+            title: tmp[i].title,
+            price: tmp[i].price,
+            image: tmp[i].image,
         };
+        if (products.title === id) {
+            if (dataPro.some(product => product.title === products.title)) {
+                window.alert('the product is already added to cart!');
+            } else {
+                dataPro.push(products);
+            }
+        }
     };
+    
     window.localStorage.setItem('products', JSON.stringify(dataPro));
     showData();
 };
@@ -149,12 +153,24 @@ function goToCart () {
     } else {
         cart.style.display = 'none';
         home.style.display = 'block';
-    }
-}
+    };
+};
 
 function backHome () {
     if (home.style.display === 'none') {
         home.style.display = 'block';
         cart.style.display = 'none';
-    }
-}
+    };
+};
+
+// delete products from cart
+function deleteFromCart (id) {
+    for (let i = 0; i < dataPro.length; i++) {
+        if (dataPro[i].title === id) {
+            dataPro.splice(i, 1);
+            localStorage.products = JSON.stringify(dataPro);
+            showData ();
+            cartsPro.innerHTML = `${dataPro.length}`
+        };
+    };
+};

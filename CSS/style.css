@@ -76,7 +76,7 @@ header nav a:hover {
 .cartsParent {
     position: relative;
 }
-#cartsPro::after {
+/* #cartsPro::after {
     content: '0';
     background-color: orangered;
     color: white;
@@ -86,7 +86,7 @@ header nav a:hover {
     position: absolute;
     top: -5px;
     right: 5px;
-}
+} */
 @media (max-width: 776px) {
     #cartsPro::after {
         right: 45px;
