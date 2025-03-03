@@ -53,6 +53,7 @@ navBtnToOpen.addEventListener('click', function () {
 let tmp;
 let cart = document.getElementById('cart');
 let cartsPro = document.getElementById('cartsPro');
+let cartSection = document.getElementById('cartSection');
 let home = document.getElementById('home');
 
 async function fetchData () {
@@ -93,14 +94,14 @@ if (localStorage.products != null) {
 }
 
 function showData () {
-    cart.innerHTML = ``;
+    cartSection.innerHTML = ``;
     if (localStorage.products != null) {
         dataPro = JSON.parse(localStorage.products);
     } else {
         dataPro = [];
     }
     for (let i = 0; i < dataPro.length; i++) {
-        cart.innerHTML +=`
+        cartSection.innerHTML +=`
                         <div>
                             <article>
                                 <img src="${dataPro[i].image}" loading="lazy" alt="${dataPro[i].title}">
@@ -108,10 +109,11 @@ function showData () {
                                 <p>💰 Price: $${dataPro[i].price}</p>
                             </article>
                             <article>
-                                <button type="button" id="${dataPro[i].title}" class="buy">Buy</button>
+                                <button type="button" id="${dataPro[i].title}" onClick="buyProduct (this.id)" class="buy">Buy</button>
                                 <button type="button" id="${dataPro[i].title}" onClick="deleteFromCart (this.id)" class="delete">Delete</button>
                             </article>
                         </div>
+                        <hr>
                     `;
                     cartsPro.innerHTML = `${dataPro.length}`;
     };
@@ -174,3 +176,55 @@ function deleteFromCart (id) {
         };
     };
 };
+
+// Buy Product function
+
+function buyProduct (id) {
+    let buyCartSection = document.createElement('div');
+    buyCartSection.style.cssText = `
+            position: absolute;
+            width: 70%;
+            border: solid 1px #000;
+            padding: 10px;
+            top: 15%;
+            right: 15%;
+            height: 60%;
+            z-index: 10;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+    `;
+    for (let i = 0; i < dataPro.length; i++) {
+        if (dataPro[i].title === id) {
+            cartSection.style.opacity = '0.5';
+            buyCartSection.innerHTML +=`
+                        <div>
+                            <article>
+                                <img src="${dataPro[i].image}" loading="lazy" alt="${dataPro[i].title}">
+                                <h4>${dataPro[i].title}</h4>
+                                <p>💰 Price: $${dataPro[i].price}</p>
+                            </article>
+                            <article>
+                                <input type="number" placeHolder="Count">
+                            </article>
+                            <article>
+                                <button type="button" id="${dataPro[i].title}" onClick="confirmBuying (this.id)">Confirm</button>
+                            </article>
+                        </div>
+                        <hr>
+                    `;
+        }
+    };
+    cart.appendChild(buyCartSection)
+    console.log (id);
+}
+
+// confirm buying
+function confirmBuying (id) {
+    window.alert('Confirmed')
+    setTimeout(() => {
+        window.location.reload();
+    }, 1000);
+}
